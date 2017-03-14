@@ -1,0 +1,25 @@
+{
+  "name": "type_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "set DEBUG=*,-not_this && node dist/index.js"
+  },
+  "author": "Joshua",
+  "license": "MIT",
+  "dependencies": {
+    "@types/body-parser": "^1.16.0",
+    "@types/debug": "^0.0.29",
+    "@types/express": "^4.0.35",
+    "@types/morgan": "^1.7.32",
+    "@types/node": "^7.0.8",
+    "body-parser": "^1.17.1",
+    "debug": "^2.6.2",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "tslint": "^4.5.1"
+  }
+}
