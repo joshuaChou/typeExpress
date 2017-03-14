@@ -9,11 +9,25 @@ class App {
         this.middleware();
         this.routes();
     }
+    /**
+     *
+     *
+     * @private
+     *
+     * @memberOf App
+     */
     middleware() {
         this.express.use(logger('dev'));
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({ extended: false }));
     }
+    /**
+     *
+     *
+     * @private
+     *
+     * @memberOf App
+     */
     routes() {
         let router = express.Router();
         router.get('/', (req, res, next) => {
