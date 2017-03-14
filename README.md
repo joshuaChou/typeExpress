@@ -11,4 +11,13 @@ PM2
 
 Express
 
+建置專案：
+
+    npm build
+
+執行專案：
+
+    npm start
+
+
 
