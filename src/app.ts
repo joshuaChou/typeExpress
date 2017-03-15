@@ -2,14 +2,26 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import * as database from './repo/db';
 
-class App{
-    public express:express.Application;
+export  class App {
+    public express: express.Application;
+    public db: database.IDB;
+    constructor() {
+    }
 
-    constructor(){
-        this.express = express();
-        this.middleware();
-        this.routes();
+    async Init(){
+         const d = new database.db();
+        await d.open().then(() => {
+            this.express = express();
+            this.middleware();
+            this.routes();
+            this.db = d;
+
+           // this.db.createDemo();
+        });
+
+        return this;
     }
 
     /**
@@ -19,10 +31,10 @@ class App{
      * 
      * @memberOf App
      */
-    private middleware():void{
+    private middleware(): void {
         this.express.use(logger('dev'));
         this.express.use(bodyParser.json());
-        this.express.use(bodyParser.urlencoded({extended:false}));
+        this.express.use(bodyParser.urlencoded({ extended: false }));
     }
 
     /**
@@ -32,15 +44,19 @@ class App{
      * 
      * @memberOf App
      */
-    private routes():void{
+    private routes(): void {
         let router = express.Router();
-        router.get('/',(req,res,next)=>{
-            res.json({
-                message:'Hello World'
+        router.get('/', (req, res, next) => {
+            this.db.getAll().then((r)=>{
+                res.send(r);
+            }).catch((err)=>{
+                throw err;
             });
         });
-        this.express.use('/',router);
+        this.express.use('/', router);
     }
 }
 
-export default new App().express;
+
+
+//export default new App().express;
