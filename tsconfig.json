@@ -10,7 +10,7 @@
             "es2016",
             "dom"
         ],        
-        "outDir": "dist",
+        "outDir": "dist/server",
         "typeRoots": [
             "node_modules/@types"
         ],
@@ -19,7 +19,7 @@
         ]
     },
     "include": [
-       "src/**/*.ts" 
+       "server/**/*.ts" 
     ],
     "exclude": [
        "node_modules" 

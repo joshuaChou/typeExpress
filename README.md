@@ -7,15 +7,22 @@ Typescript practice  run server on docker
     Web:Express
     F2e:Angular2
 
-建置專案：
+Cleint and Server in one Project 
+
+
+Build：
 
     npm build
 
-執行專案：
+Run client：
 
     npm start
 
-透過PM2 執行
+Run Server:
+
+    npm run server
+
+Use PM2
 
     pm2 start processes.json
 
