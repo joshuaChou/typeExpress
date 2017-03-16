@@ -1,39 +1,40 @@
-import * as http from 'http';
-import * as debug from 'debug';
+import * as http from "http";
+import * as debug from "debug";
 
-import * as app from './app';
+import app from "./app";
 
-debug('tsExpress');
+debug("tsExpress");
 
-let mainApp = null;
-new app.App().Init().then((result) => {
-  mainApp = result.express;
+let express = undefined;
+
+app.Init().then((result) => {
+  express = result.express;
 
 
   const port = normalizePort(process.env.PORT || 3000);
-  mainApp.set('port', port);
+  express.set("port", port);
 
-  const server = http.createServer(mainApp);
+  const server = http.createServer(express);
   server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
+  server.on("error", onError);
+  server.on("listening", onListening);
 
   function normalizePort(val: number | string): number | string | boolean {
-    let port: number = (typeof val === 'string') ? parseInt(val, 10) : val;
+    let port: number = (typeof val === "string") ? parseInt(val, 10) : val;
     if (isNaN(port)) return val;
     else if (port >= 0) return port;
     else return false;
   }
 
   function onError(error: NodeJS.ErrnoException): void {
-    if (error.syscall !== 'listen') throw error;
-    let bind = (typeof port === 'string') ? 'Pipe ' + port : 'Port ' + port;
+    if (error.syscall !== "listen") throw error;
+    let bind = (typeof port === "string") ? "Pipe " + port : "Port " + port;
     switch (error.code) {
-      case 'EACCES':
+      case "EACCES":
         console.error(`${bind} requires elevated privileges`);
         process.exit(1);
         break;
-      case 'EADDRINUSE':
+      case "EADDRINUSE":
         console.error(`${bind} is already in use`);
         process.exit(1);
         break;
@@ -44,7 +45,7 @@ new app.App().Init().then((result) => {
 
   function onListening(): void {
     let addr = server.address();
-    let bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
+    let bind = (typeof addr === "string") ? `pipe ${addr}` : `port ${addr.port}`;
     debug(`Listening on ${bind}`);
   }
 });

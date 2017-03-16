@@ -1,12 +1,11 @@
 # typeExpress
-針對Typescript 與 Express的配合練習
+Typescript practice  run server on docker
 
-使用技術有
-
-    Typescript
-    TSLint
-    PM2
-    Express
+Database:RethinkDB
+Queue:Rabbitmq
+Cache:redis
+Web:Express
+F2e:Angular2
 
 建置專案：
 

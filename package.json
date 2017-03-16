@@ -1,6 +1,6 @@
 {
   "name": "type_express",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,6 @@
     "morgan": "^1.8.1",
     "rethinkdb": "^2.3.3",
     "tslint": "^4.5.1"
-  }
+  },
+  "devDependencies": {}
 }
