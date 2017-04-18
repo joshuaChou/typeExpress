@@ -1,7 +1,7 @@
 <div class="form-container">
   <a routerLink="/login" id="goback">Go back</a>
 
-  <h2>註冊</h2>
+  <h2>Create</h2>
 
   <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
     
@@ -11,6 +11,6 @@
     <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
 
 
-    <button type="submit" [disabled]="!formData.valid" class="basic-btn">建立帳號</button>
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create Account</button>
   </form>
 </div>

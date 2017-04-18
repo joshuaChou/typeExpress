@@ -3,8 +3,9 @@
       <button (click)="logout()" class="basic-btn">Logout</button>
     </header>
     <div id="page" [@moveInLeft]="state">
+      <div *ngIf=" name != undefined">
       <h2>Hey {{ name.auth.displayName }}!</h2>
-
+      </div>
       <img src="assets/images/filler.png" />
     </div>
     

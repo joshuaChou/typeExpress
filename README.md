@@ -9,7 +9,6 @@ Typescript practice  run server on docker
 
 Cleint and Server in one Project 
 
-
 Build：
 
     npm build
@@ -25,6 +24,19 @@ Run Server:
 Use PM2
 
     pm2 start processes.json
+
+
+Run Demo Code
+
+1、Create config.ts in src, and copy paste firebase config in your firebase Control
+Example
+ var config = {
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    storageBucket: "",
+    messagingSenderId: ""
+  };
 
 
 

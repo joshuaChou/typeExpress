@@ -8,9 +8,7 @@ import {moveIn} from '../router.animations';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   animations: [moveIn()],
-  host: {
-    '[@moveIn]': ''
-  }
+  host: { '[@moveIn]' : '' }
 })
 export class LoginComponent implements OnInit {
 
