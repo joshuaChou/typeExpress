@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import {AngularFireAuth, AngularFireAuthProvider,AngularFireAuthModule} from 'angularfire2/auth';
 import {Router} from '@angular/router';
 import {moveIn} from '../router.animations';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,11 @@ import {moveIn} from '../router.animations';
 export class LoginComponent implements OnInit {
 
   error: any;
-  constructor(public af: AngularFire, private router: Router) {
+  constructor(public af: AngularFireAuth, private router: Router) {
 
     this
       .af
-      .auth
+      .authState
       .subscribe(auth => {
         if (auth) {
           this
@@ -28,10 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginGoogle() {
-    this
-      .af
-      .auth
-      .login({provider: AuthProviders.Google, method: AuthMethods.Popup})
+   this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((success) => {
         this
           .router
